@@ -56,10 +56,10 @@ bin/${KERNEL}: Makefile linker.ld ${OBJFILES}
 %.o: %.psf Makefile
 	objcopy -O elf64-x86-64 -B i386 -I binary $< $@
 
-%.asm.o: ${NASMFILES} Makefile
+%.o: %.asm Makefile
 	nasm ${NASMFLAGS} $< -o $@
 
-%.c.o: ${CFILES} Makefile
+%.o: %.c Makefile
 	${CC} ${CFLAGS} ${CPPFLAGS} -c $< -o $@
 
 .PHONY: clean

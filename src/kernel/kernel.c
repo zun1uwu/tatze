@@ -32,7 +32,6 @@ kmain(void)
 
         psf_init(fb);
         // psf_print("Hello, world!", 0xffffff);
-test();
 
         hcf();
 }
