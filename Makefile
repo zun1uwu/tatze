@@ -22,8 +22,8 @@ CFLAGS = ${DEFAULT_CFLAGS} \
 	-mno-sse2 \
 	-mno-red-zone
 
-CPPFLAGS = -I src/include \
-	-I src/libc/include \
+CPPFLAGS = -I kernel/include \
+	-I libc/include \
 	-MMD \
 	-MP
 
@@ -38,9 +38,9 @@ LDFLAGS = -m elf_x86_64 \
 NASMFLAGS = -Wall \
 	-felf64 \
 
-CFILES = $(shell find -L src -type f -name '*.c')
-NASMFILES = $(shell find -L src -type f -name '*.asm')
-HEADER_DEPS = $(shell find -L src -type f -name '*.d')
+CFILES = $(shell find -L . -type f -name '*.c')
+NASMFILES = $(shell find -L . -type f -name '*.asm')
+HEADER_DEPS = $(shell find -L . -type f -name '*.d')
 PSFFILES = $(shell find -L -type f -name '*.psf')
 
 OBJFILES = ${CFILES:.c=.o} ${NASMFILES:.asm=.o} ${PSFFILES:.psf=.o}

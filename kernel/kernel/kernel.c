@@ -1,7 +1,7 @@
-#include <psf.h>
+#include <kernel/psf.h>
 #include <limine.h>
 #include <stdbool.h>
-#include <gdt.h>
+#include <kernel/gdt.h>
 
 static volatile LIMINE_BASE_REVISION(1);
 

@@ -1,6 +1,6 @@
 #include <limine.h>
 #include <stdint.h>
-#include <psf.h>
+#include <kernel/psf.h>
 #include <string.h>
 
 struct limine_framebuffer *fb;

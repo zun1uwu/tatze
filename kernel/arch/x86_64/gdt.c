@@ -1,5 +1,5 @@
-#include <gdt.h>
-#include <psf.h>
+#include <kernel/gdt.h>
+#include <kernel/psf.h>
 #include <stdlib.h>
 
 /* our segment descriptors:
@@ -22,12 +22,12 @@ void
 gdt_install(void)
 {       
         gdt[0] = 0x0000000000000000; /* null descriptor */
-        gdt[1] = 0x00C09A000000FFFF; /* 16-bit code descriptor rd */
-        gdt[2] = 0x00C092000000FFFF; /* 16-bit data descriptor wr */
-        gdt[3] = 0x00CF9A000000FFFF; /* 32-bit code descriptor rd */
-        gdt[4] = 0x00CF92000000FFFF; /* 32-bit data descriptor wr */
-        gdt[5] = 0x00C09A0000000000; /* 64-bit code descriptor rd */
-        gdt[6] = 0x00C0920000000000; /* 64-bit data descriptor wr */
+        gdt[1] = 0x00C09A000000FFFF; /* 16-bit code descriptor readable */
+        gdt[2] = 0x00C092000000FFFF; /* 16-bit data descriptor writable */
+        gdt[3] = 0x00CF9A000000FFFF; /* 32-bit code descriptor readable */
+        gdt[4] = 0x00CF92000000FFFF; /* 32-bit data descriptor writable */
+        gdt[5] = 0x00C09A0000000000; /* 64-bit code descriptor readable */
+        gdt[6] = 0x00C0920000000000; /* 64-bit data descriptor writable */
 
         gp.limit = (uint16_t) sizeof(gdt) - 1;
         gp.base = (uint64_t) &gdt;
