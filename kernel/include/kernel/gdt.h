@@ -8,4 +8,6 @@ struct gdt_ptr {
 } __attribute__((packed));
 
 extern void _gdt_load(void);
+extern void _reload_segments(void);
+
 void gdt_install(void);

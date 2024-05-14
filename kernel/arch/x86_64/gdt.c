@@ -1,5 +1,5 @@
 #include <kernel/gdt.h>
-#include <kernel/psf.h>
+#include <kernel/tty.h>
 #include <stdlib.h>
 
 /* our segment descriptors:
@@ -32,7 +32,6 @@ gdt_install(void)
         gp.limit = (uint16_t) sizeof(gdt) - 1;
         gp.base = (uint64_t) &gdt;
 
-        psf_print("loading gdt... ", 0xffffff);
         _gdt_load();
-        psf_print("ok", 0x00ff00);
+        // _reload_segments();
 }

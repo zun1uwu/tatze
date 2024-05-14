@@ -1,6 +1,6 @@
 #pragma once
 
-#include "limine.h"
+#include <limine.h>
 #include <stdint.h>
 
 #define PSF1_FONT_MAGIC 0x0436
@@ -29,19 +29,13 @@ struct psf_cursor {
         int y;
 };
 
-#define LOGLEVEL_INFO 0
-#define LOGLEVEL_WARN 1
-#define LOGLEVEL_ERROR 2
-
-void psf_init(struct limine_framebuffer *fb_ptr);
-void psf_drawchar(uint8_t c, int cx, int cy, uint32_t fg, uint32_t bg);
-void psf_putchar(uint8_t c, uint32_t fg, uint32_t bg);
+void tty_init(struct limine_framebuffer *fb_ptr);
+void tty_drawchar(uint8_t c, int cx, int cy, uint32_t fg, uint32_t bg);
+void tty_putchar(uint8_t c, uint32_t fg, uint32_t bg);
 int handle_control_char(char c);
-void psf_moveline(int dest_y, int src_y);
-void psf_clearline(int y);
-void psf_clear(void);
-void psf_scroll(void);
-void psf_putchar(uint8_t c, uint32_t fg, uint32_t bg);
-void psf_print(char *s, uint32_t color);
-void psf_log(int level, char *s);
-void psf_info(void);
+void tty_moveline(int dest_y, int src_y);
+void tty_clearline(int y);
+void tty_clear(void);
+void tty_scroll(void);
+void tty_putchar(uint8_t c, uint32_t fg, uint32_t bg);
+void tty_print(char *s, uint32_t color);

@@ -1,4 +1,4 @@
-#include <kernel/psf.h>
+#include <kernel/tty.h>
 #include <limine.h>
 #include <stdbool.h>
 #include <kernel/gdt.h>
@@ -30,9 +30,13 @@ kmain(void)
 
         struct limine_framebuffer *fb = fb_request.response->framebuffers[0];
 
-        psf_init(fb);
+        tty_init(fb);
 
+        tty_print("loading gdt... ", 0xffffff);
         gdt_install();
+        tty_print("ok", 0xffffff);
+
+        
 
         hcf();
 }
