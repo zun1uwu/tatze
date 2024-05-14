@@ -1,10 +1,9 @@
-gdtr    dw 0 ; for limit storage
-        dq 0 ; for base storage
+[bits 64]
 
-global gdt_load
+global _gdt_load
+extern gp
 
-gdt_load:
-        mov     [gdtr], di
-        mov     [gdtr + 2], rsi
-        lgdt    [gdtr]
+_gdt_load:
+        cli
+        lgdt    [gp]
         ret

@@ -31,7 +31,8 @@ kmain(void)
         struct limine_framebuffer *fb = fb_request.response->framebuffers[0];
 
         psf_init(fb);
-        // psf_print("Hello, world!", 0xffffff);
+
+        gdt_install();
 
         hcf();
 }

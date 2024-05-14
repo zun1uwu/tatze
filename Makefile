@@ -30,7 +30,6 @@ CPPFLAGS = -I src/include \
 LDFLAGS = -m elf_x86_64 \
 	-nostdlib \
 	-static \
-	-pie \
 	--no-dynamic-linker \
 	-z text \
 	-z max-page-size=0x1000 \

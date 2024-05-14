@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GDT_H
+#define GDT_H 1
 
 #include <stdint.h>
 
@@ -7,8 +8,7 @@ struct gdt_ptr {
         uint64_t base;
 } __attribute__((packed));
 
-struct gdt_ptr gp;
+extern void _gdt_load(void);
+void gdt_install(void);
 
-extern void gdt_load(uint16_t limit, uint64_t base);
-
-void install_gdt(void);
+#endif
