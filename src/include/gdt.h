@@ -1,5 +1,4 @@
-#ifndef GDT_H
-#define GDT_H 1
+#pragma once
 
 #include <stdint.h>
 
@@ -10,5 +9,3 @@ struct gdt_ptr {
 
 extern void _gdt_load(void);
 void gdt_install(void);
-
-#endif
