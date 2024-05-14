@@ -1,2 +1,8 @@
 .vscode
 .clang-format
+limine
+iso
+bin
+*.iso
+*.o
+*.d
