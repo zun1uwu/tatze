@@ -32,6 +32,11 @@ gdt_install(void)
         gp.limit = (uint16_t) sizeof(gdt) - 1;
         gp.base = (uint64_t) &gdt;
 
+        tty_print("loading gdt... ", 0xffffff);
         _gdt_load();
-        // _reload_segments();
+        tty_print("ok\n", 0xffffff);
+
+        tty_print("reloading segments... ", 0xffffff);
+        _reload_segments();
+        tty_print("ok\n", 0xffffff);
 }

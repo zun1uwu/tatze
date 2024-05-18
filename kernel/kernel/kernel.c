@@ -32,11 +32,7 @@ kmain(void)
 
         tty_init(fb);
 
-        tty_print("loading gdt... ", 0xffffff);
         gdt_install();
-        tty_print("ok", 0xffffff);
-
-        
 
         hcf();
 }

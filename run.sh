@@ -1,1 +1,1 @@
-make clean && make && ./mkiso.sh && qemu-system-x86_64 tatze.iso
+make clean && make && ./mkiso.sh && qemu-system-x86_64 -S -s tatze.iso
