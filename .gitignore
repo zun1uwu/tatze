@@ -6,3 +6,4 @@ bin
 *.iso
 *.o
 *.d
+*.log

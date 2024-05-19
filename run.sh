@@ -1,1 +1,1 @@
-make clean && make && ./mkiso.sh && qemu-system-x86_64 tatze.iso
+make clean && make && ./mkiso.sh && qemu-system-x86_64 tatze.iso -d int -D qemu.log -no-reboot -m 128

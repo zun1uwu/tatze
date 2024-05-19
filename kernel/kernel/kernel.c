@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <kernel/gdt.h>
 
-static volatile LIMINE_BASE_REVISION(1);
+static volatile LIMINE_BASE_REVISION(2);
 
 static volatile struct limine_framebuffer_request fb_request = {
         .id = LIMINE_FRAMEBUFFER_REQUEST,
