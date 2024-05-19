@@ -1,9 +1,17 @@
 [bits 64]
 
 global _gdt_load
-extern gp
+
+section .data
+
+gdtr    dw 0 ; limit
+        dq 0 ; base
+
+section .text
 
 _gdt_load:
-        cli
-        lgdt    [gp]
+        mov     [gdtr], di
+        mov     [gdtr + 2], rsi
+        lgdt    [gdtr]
         ret
+        

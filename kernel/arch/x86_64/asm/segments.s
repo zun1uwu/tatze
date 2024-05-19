@@ -2,14 +2,16 @@
 
 global _reload_segments
 
+section .text
+
 _reload_segments:
-        push 0x08                       ; causes triple fault
+        push 0x08
         lea rax, [rel .reload_cs]
-        push rax                        ; causes triple fault
-        retfq                           ; causes triple fault
+        push rax
+        retfq 
 
 .reload_cs:
-        mov ax, 0x10
+        mov ax, 0x10    ; page fault at this instruction
         mov ds, ax
         mov es, ax
         mov fs, ax
