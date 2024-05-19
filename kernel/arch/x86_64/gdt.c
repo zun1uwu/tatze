@@ -2,6 +2,7 @@
 #include <kernel/tty.h>
 #include <stdlib.h>
 
+
 #define DESCRIPTOR_COUNT 5
 uint64_t gdt[DESCRIPTOR_COUNT];
 

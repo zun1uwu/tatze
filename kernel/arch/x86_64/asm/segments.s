@@ -11,7 +11,7 @@ _reload_segments:
         retfq 
 
 .reload_cs:
-        mov ax, 0x10    ; page fault at this instruction
+        mov ax, 0x10
         mov ds, ax
         mov es, ax
         mov fs, ax
